@@ -8,6 +8,7 @@ namespace Tutorial
         {
             foreach (int i in intArray)
             {
+                Console.WriteLine(message);
                 Console.WriteLine("{0} : {1}", message, i);
             }
         }
@@ -16,6 +17,7 @@ namespace Tutorial
         {
             #region basic data types, string methods
             //Console.Clear();
+
             //Console.WriteLine("Hello");
             //Console.Write("What is your name? ");
             ////Console.ForegroundColor = ConsoleColor.Black;
@@ -90,71 +92,134 @@ namespace Tutorial
 
             #region Arrays, for loop, function basics, foreach
 
-            int[] intArray = new int[3];
-            intArray[0] = 10; 
-            intArray[1] = 20; 
-            intArray[2] = 30;
-            Console.WriteLine("Int at index 0 : {0}", intArray[0]);
+            //int[] intArray = new int[3];
+            //intArray[0] = 10; 
+            //intArray[1] = 20; 
+            //intArray[2] = 30;
+            //Console.WriteLine("Int at index 0 : {0}", intArray[0]);
 
-            string[] customers = { "Bob", "Sally", "Sue" };
-            var emplyees = new[] {"Mike", "Paul", "Rick" };
-            object[] randomArray = { "Paul", 45, 1.234, "Hello" };
-            Console.WriteLine("randomArray at index 0 : {0}", randomArray[0].GetType());  
-            Console.WriteLine("Array size : {0}", randomArray.Length);  
-        
+            //string[] customers = { "Bob", "Sally", "Sue" };
+            //var emplyees = new[] {"Mike", "Paul", "Rick" };
+            //object[] randomArray = { "Paul", 45, 1.234, "Hello" };
+            //Console.WriteLine("randomArray at index 0 : {0}", randomArray[0].GetType());  
+            //Console.WriteLine("Array size : {0}", randomArray.Length);  
 
-            for(int i = 0; i < randomArray.Length; i++) 
+
+            //for(int i = 0; i < randomArray.Length; i++) 
+            //{
+            //    Console.WriteLine("Array index : {0} - Value : {1}", i, randomArray[i]);
+            //}
+
+            ////multi-dimensional arrays
+            //Console.WriteLine("----------------------");
+            //string[,] customerNames = new string[2, 2] {{ "Bob", "Smith" }, { "Candy", "Smith" }};
+            //Console.WriteLine("multi-dimesional value : {0}", customerNames.GetValue(1, 0));
+
+            //for(int i = 0; i < customerNames.GetLength(0); i++)
+            //{
+            //    for(int j = 0; j < customerNames.GetLength(1); j++)
+            //    {
+            //        Console.WriteLine("{0}", customerNames[i, j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //int[] randNums = { 1, 4, 8, 2 };
+            //PrintArray(randNums, "ForEach");
+            //Console.WriteLine("----------------------");
+            ////Sort Arrays
+            //Array.Sort(randNums);
+            //PrintArray(randNums, "ForEach");
+            ////Array.Reverse(randNums);
+            //Console.WriteLine("1 at index : {0}", Array.IndexOf(randNums, 1));
+            //PrintArray(randNums, "ForEach");
+
+            //randNums.SetValue(0, 1);
+            //PrintArray(randNums, "ForEach");
+
+            //int[] srcArray = { 1, 2, 3, };
+            //int[] destArray = new int[2];
+            //int startInd = 0;
+            //int length = 2;
+
+            //Array.Copy(srcArray, startInd, destArray, 0, length);
+            //PrintArray(destArray, "Copy");
+
+            //Array anotherArray = Array.CreateInstance(typeof(int), 10);
+
+            //srcArray.CopyTo(anotherArray, 5);
+
+            //foreach (int i in anotherArray)
+            //{
+            //    Console.WriteLine("Copy to : {0}", i);
+            //}
+
+            #endregion
+
+            #region Control flow (conditionals, ternary operator, switch statement, while, do while
+            //int age = 1;
+
+            /*if (age >= 5 && age <= 7)
             {
-                Console.WriteLine("Array index : {0} - Value : {1}", i, randomArray[i]);
+                Console.WriteLine("Go to elementary school");
+
+            }
+            if (age > 7 && age <= 13)
+            {
+                Console.WriteLine("Go to middle school");
+            }
+            if (age > 13 && age < 19)
+            {
+                Console.WriteLine("Go to high school");
+            }
+            else
+            {
+                Console.WriteLine("Go to college");
+
             }
 
-            //multi-dimensional arrays
-            Console.WriteLine("----------------------");
-            string[,] customerNames = new string[2, 2] {{ "Bob", "Smith" }, { "Candy", "Smith" }};
-            Console.WriteLine("multi-dimesional value : {0}", customerNames.GetValue(1, 0));
-
-            for(int i = 0; i < customerNames.GetLength(0); i++)
+            if (age < 14 || age > 67)
             {
-                for(int j = 0; j < customerNames.GetLength(1); j++)
+                Console.WriteLine("You should not work");
+            }*/
+
+            /* bool canDrive = age >= 16 ? true : false;
+             Console.WriteLine(canDrive);
+
+             switch (age)
+             {
+                 case 1:
+                 case 2:
+                     Console.WriteLine("Go to day care!");
+                     break;
+                 case 3:
+                 case 4:
+                     Console.WriteLine("Go to pre school!");
+                     break;
+                 case 5:
+                 case 6:
+                     Console.WriteLine("Go to kindergarten!");
+                     break;
+                 default:
+                     Console.WriteLine("Go to another school");
+                     break;
+             }*/
+
+            int i = 1;
+            int range = 100;
+            Console.WriteLine("Odd numbers: ");
+            while (i <= range)
+            {
+                if (i % 2 == 0)
                 {
-                    Console.WriteLine("{0}", customerNames[i, j]);
+                    i++;
+                    continue;
                 }
-                Console.WriteLine();
+                if (i == 9) break;
+                Console.WriteLine(i);
+                i++;
             }
-
-            int[] randNums = { 1, 4, 8, 2 };
-            PrintArray(randNums, "ForEach");
-            Console.WriteLine("----------------------");
-            //Sort Arrays
-            Array.Sort(randNums);
-            PrintArray(randNums, "ForEach");
-            //Array.Reverse(randNums);
-            Console.WriteLine("1 at index : {0}", Array.IndexOf(randNums, 1));
-            PrintArray(randNums, "ForEach");
-
-            randNums.SetValue(0, 1);
-            PrintArray(randNums, "ForEach");
-
-            int[] srcArray = { 1, 2, 3, };
-            int[] destArray = new int[2];
-            int startInd = 0;
-            int length = 2;
-
-            Array.Copy(srcArray, startInd, destArray, 0, length);
-            PrintArray(destArray, "Copy");
-
-            Array anotherArray = Array.CreateInstance(typeof(int), 10);
-            
-            srcArray.CopyTo(anotherArray, 5);
-
-            foreach (int i in anotherArray)
-            {
-                Console.WriteLine("Copy to : {0}", i);
-            } 
-
-
-
-            #endregion 
+            #endregion
 
 
         }
