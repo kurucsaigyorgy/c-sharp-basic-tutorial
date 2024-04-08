@@ -29,7 +29,7 @@ namespace Tutorial
         private static void SayHello()
         {
             Console.Write("What is your name?: ");
-            string name = Console.ReadLine();
+            var name = Console.ReadLine();
             Console.WriteLine("Hello, {0}", name);
         }
 
@@ -53,7 +53,52 @@ namespace Tutorial
             y = temp;
         }
 
+        public static double GetSomeMore(params double[] nums)
+        {
+            double sum = 0;
+            foreach (double i in nums)
+            {
+                sum += i; 
+            }
+
+            return sum;
+        }
+
+        public static void PrintInfo(string name, int zipCode)
+        {
+            Console.WriteLine("{0} lives in the zip code {1}", name, zipCode);
+        }
+
+        public static double GetSum2(double x = 1, double y = 1)
+        {
+            return x + y;
+        } 
+        
+        public static double GetSum2(string x = "1", string y = "1")
+        {
+            double dblX = Convert.ToDouble(x);
+            double dblY = Convert.ToDouble(y);
+            return dblX + dblY;
+        }
+
+        public static void PaintCar(CarColor cc)
+        {
+            Console.WriteLine("The car was painted {0} with the code {1}.", cc, (int)cc);
+        }
+
         #endregion
+
+        public enum CarColor : byte
+        {
+            Orange = 1,
+            Blue = 2,
+            Green = 3,
+            Red = 4,
+            Yellow = 5,
+        }
+
+
+
         public static void Main(string[] args)
         {
             #region basic data types, string methods
@@ -349,7 +394,7 @@ namespace Tutorial
              Console.WriteLine("x = {0}", x);
              Console.WriteLine("y = {0}", y);*/
 
-            int solution;
+            /*int solution;
             DoubleIt(15, out solution);
             Console.WriteLine(solution);
 
@@ -357,10 +402,51 @@ namespace Tutorial
             int num4 = 20;
             Console.WriteLine("Before swap num1 : {0} - num2 : {1}", num3, num4);
             Swap(ref num3, ref num4);
-            Console.WriteLine("After swap num1 : {0} - num2 : {1}", num3, num4);
-
+            Console.WriteLine("After swap num1 : {0} - num2 : {1}", num3, num4);*/
 
             #endregion
+
+            #region Passing Unknown Number of Parameters, Method Overloading, DateTime / TimeSpan,  Enumerated Types
+
+            // passing unknown amount of parameters
+
+            /* Console.WriteLine(GetSomeMore(1, 3, 4, 5, 6, 7));*/
+
+            // named parameters
+            // named parameters, the order does not matter, it can differ from the order 
+            // specified in the argument list
+
+            /*PrintInfo(zipCode: 1135, name: "Kurucsai György"); */
+
+            // method overloading - same method name, but different amount of arguments, or different types of arguments
+
+            /* double sum1 = GetSum2(10, 20);
+             double sum2 = GetSum2("10", "1000");
+             Console.WriteLine($"{sum1} - {sum2}");*/
+
+            // DateTime, TimeSpan example
+
+            /*DateTime myDate = new(1974, 12, 31);
+            Console.WriteLine("Day of the week : {0}", myDate.DayOfWeek);
+            myDate = myDate.AddDays(4);
+            myDate = myDate.AddMonths(1);
+            myDate = myDate.AddYears(21);
+            Console.WriteLine("New Date : {0}", myDate.Date);
+
+            TimeSpan lunchTime = new(12, 30, 0);
+            lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
+            Console.WriteLine("New Time : {0}", lunchTime.ToString());  */
+
+            // Enumerated Types
+
+            CarColor car1 = CarColor.Orange;
+            CarColor car2 = CarColor.Blue;
+            PaintCar(car1);
+            PaintCar(car2);
+            
+            #endregion
+
+
 
         }
     }
