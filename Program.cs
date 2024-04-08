@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.Reflection.Metadata;
+using System.Text;
 namespace Tutorial
 {
     public class Program
@@ -12,6 +15,44 @@ namespace Tutorial
                 Console.WriteLine("{0} : {1}", message, i);
             }
         }
+
+        public static double DoDivision(double num1, double num2)
+        {
+            if (num2 == 0)
+            {
+                throw new System.DivideByZeroException();
+            }
+
+            return num1 / num2;
+        }
+
+        private static void SayHello()
+        {
+            Console.Write("What is your name?: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Hello, {0}", name);
+        }
+
+        private static double GetSum(double x = 0, double y = 0)
+        {
+            double temp = x;
+            x = y;
+            y = temp;
+
+            return x + y;
+        }
+        public static void DoubleIt(int x, out int solution)
+        {
+            solution = x * 2;
+        }
+
+        public static void Swap(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+
         #endregion
         public static void Main(string[] args)
         {
@@ -205,7 +246,7 @@ namespace Tutorial
                      break;
              }*/
 
-            int i = 1;
+            /*int i = 1;
             int range = 100;
             Console.WriteLine("Odd numbers: ");
             while (i <= range)
@@ -217,12 +258,112 @@ namespace Tutorial
                 }
                 if (i == 9) break;
                 Console.WriteLine(i);
-                i++;
-            }
+                i++;*/
             #endregion
 
+            #region Random, Exception Handling, StringBuilder, Functions, Access Specifier, Out parameter, Pass by reference
+
+
+            // Random number guessing game with instructions if guessed number is higher or lower than secret number 
+            /* Random random = new Random();
+             int secretNumber = random.Next(1, 1001);
+             int userNumber;
+             int guessCounter = 0;
+             Console.WriteLine("Random Num: ", secretNumber);
+
+             do
+             {
+                 Console.WriteLine("Enter a number between 1 and 1000: ");
+                 userNumber = Convert.ToInt32(Console.ReadLine());
+                 if (userNumber > secretNumber)
+                 {
+                     Console.WriteLine("The secret number is lower");
+                 } else if (userNumber < secretNumber)
+                 {
+                     Console.WriteLine("The secret number is higher");
+
+                 }
+                 guessCounter++;
+             } while (secretNumber != userNumber);
+
+             Console.WriteLine("You guessed it, it was {0}", secretNumber);
+             Console.WriteLine($"You had {guessCounter} guesses.");*/
+
+            //Exception handling
+
+            /*double num = 5;
+            double y = 0;*/
+
+            /*try
+            {
+                Console.WriteLine("5 / 0 = {0}", DoDivision(num, y));
+            } 
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("You can not divide by zero.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType().Name);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType().Name);
+            }
+
+            finally
+            {
+                Console.WriteLine("Cleaning up");
+            }*/
+
+            //String builders
+
+            /*StringBuilder sb = new("Random Text");
+            StringBuilder sb2 = new("More stuff that is very important", 256);
+
+            Console.WriteLine("Capacity : {0}", sb2.Capacity);
+            Console.WriteLine("Length: {0}", sb2.Length);
+            sb2.AppendLine("\nMore important text");
+            CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
+            string bestCustomer = "Bob Smith";
+            sb2.AppendFormat(enUS, "Best Customer: {0}", bestCustomer);
+            Console.WriteLine(sb2.ToString());
+            sb2.Replace("text", "characters");
+            Console.WriteLine(sb2.ToString());
+            sb2.Clear();
+            sb2.Append("Random Text");
+            Console.WriteLine(sb.Equals(sb2));
+            sb2.Insert(11, " that's great");
+            Console.WriteLine(sb2.ToString());
+            sb2.Remove(11, 7);
+            Console.WriteLine(sb2.ToString());*/
+
+            //Functions
+
+            // <Access Modofier> <Return Type> <Method Name>(Parameters)
+            // {<Body>}
+
+            /* double x = 4;
+             double y = 5;
+             Console.WriteLine("4 + 5 = {0}", GetSum(x, y));
+             Console.WriteLine("x = {0}", x);
+             Console.WriteLine("y = {0}", y);*/
+
+            int solution;
+            DoubleIt(15, out solution);
+            Console.WriteLine(solution);
+
+            int num3 = 10;
+            int num4 = 20;
+            Console.WriteLine("Before swap num1 : {0} - num2 : {1}", num3, num4);
+            Swap(ref num3, ref num4);
+            Console.WriteLine("After swap num1 : {0} - num2 : {1}", num3, num4);
+
+
+            #endregion
 
         }
     }
 }
+ 
 
